@@ -316,16 +316,47 @@
     }
     .hc-rect-main {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=920&h=1200&fit=crop&q=85');
+      background-image: url('https://assets.cdn.filesafe.space/0EgKTcd9YvsDKkQqklPo/media/69c5a1859619ac2c81923c6a.webp');
       background-size: cover; background-position: center top;
       border: 1px solid var(--border);
     }
     .hc-rect-accent {
       position: absolute;
-      width: 55%; height: 45%;
+      width: 58%; height: 48%;
       bottom: -24px; right: -24px;
-      background: var(--s2);
+      background: rgba(250,247,242,.97);
+      backdrop-filter: blur(16px);
       border: 1px solid var(--border);
+      padding: 20px 22px;
+      display: flex; flex-direction: column; justify-content: center;
+      box-shadow: 0 8px 32px rgba(28,24,18,.08);
+    }
+    .hca-label {
+      font-size: 7.5px; font-weight: 500;
+      letter-spacing: .32em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hca-label::after { content:''; flex:1; height:1px; background:var(--gold-20); }
+    .hca-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .hca-aw {
+      padding: 9px 10px 9px 12px;
+      border-left: 2px solid var(--gold);
+      background: var(--gold-10);
+    }
+    .hca-yr {
+      display: block;
+      font-size: 8px; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 3px;
+    }
+    .hca-name {
+      font-family: var(--fd);
+      font-size: 11.5px; font-weight: 400;
+      color: var(--ink); line-height: 1.25;
     }
     .hc-circle {
       position: absolute;
@@ -536,7 +567,7 @@
     }
     .doc-img-fill {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=900&h=1200&fit=crop&q=85');
+      background-image: url('https://assets.cdn.filesafe.space/0EgKTcd9YvsDKkQqklPo/media/69c5a1859619ac2c81923c6a.webp');
       background-size: cover; background-position: center top;
       will-change: transform; /* parallax target */
     }
@@ -648,14 +679,15 @@
     /* Panel right-side photo */
     .hp-photo-r {
       position: absolute; top: 0; right: 0;
-      width: 42%; height: 100%;
-      background-size: cover; background-position: center;
-      opacity: .18;
-      mask-image: linear-gradient(to left, rgba(0,0,0,.9) 0%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,.9) 0%, transparent 100%);
+      width: 48%; height: 100%;
+      background-size: cover; background-position: center top;
+      opacity: .52;
+      mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,.6) 60%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,.6) 60%, transparent 100%);
       pointer-events: none;
+      transition: opacity .6s var(--ease);
     }
-    .h-panel:hover .hp-photo-r { opacity: .28; transition: opacity .6s var(--ease); }
+    .h-panel:hover .hp-photo-r { opacity: .75; }
 
     /* Fallback for mobile: vertical */
     .h-scroll-mobile { display: none; }
@@ -670,7 +702,18 @@
       aspect-ratio: 3/4;
       background: var(--s2);
       overflow: hidden; position: relative;
+      animation: galIn .9s var(--ease) both;
     }
+    @keyframes galIn {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .gal-item:nth-child(1) { animation-delay: .05s; }
+    .gal-item:nth-child(2) { animation-delay: .15s; }
+    .gal-item:nth-child(3) { animation-delay: .25s; }
+    .gal-item:nth-child(4) { animation-delay: .10s; }
+    .gal-item:nth-child(5) { animation-delay: .20s; }
+    .gal-item:nth-child(6) { animation-delay: .30s; }
     .gal-item:first-child { aspect-ratio: 3/5; }
     .gal-item-inner {
       position: absolute; inset: 0;
@@ -935,6 +978,64 @@
       .ft-top { grid-template-columns: 1fr; }
       .hero-acts { flex-direction: column; align-items: flex-start; }
     }
+
+    /* ════════════════════════════════════════
+       SERVICES CARD PHOTO BG
+    ════════════════════════════════════════ */
+    .svc-photo-bg {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 44%;
+      background-size: cover;
+      background-position: center top;
+      mask-image: linear-gradient(to left, rgba(0,0,0,.8) 0%, rgba(0,0,0,.3) 50%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,.8) 0%, rgba(0,0,0,.3) 50%, transparent 100%);
+      pointer-events: none;
+      opacity: .55;
+      transition: opacity .5s var(--ease);
+    }
+    .svc-card:hover .svc-photo-bg { opacity: .8; }
+    .svc-photo-sm {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 38%;
+      background-size: cover;
+      background-position: center top;
+      mask-image: linear-gradient(to left, rgba(0,0,0,.75) 0%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,.75) 0%, transparent 100%);
+      pointer-events: none;
+      opacity: .45;
+      transition: opacity .5s var(--ease);
+    }
+    .svc-card:hover .svc-photo-sm { opacity: .75; }
+
+    /* ════════════════════════════════════════
+       BEFORE / AFTER GALLERY
+    ════════════════════════════════════════ */
+    .gal-after-layer {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center top;
+      opacity: 0;
+      transition: opacity .75s var(--ease);
+    }
+    .gal-item:hover .gal-after-layer { opacity: 1; }
+    .gal-ba-lbl {
+      position: absolute; top: 16px;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: rgba(250,247,242,.95);
+      padding: 5px 11px;
+      background: rgba(28,24,18,.52);
+      backdrop-filter: blur(10px);
+      z-index: 8;
+      pointer-events: none;
+      transition: opacity .4s;
+    }
+    .gal-ba-lbl.lbl-b { left: 16px; }
+    .gal-ba-lbl.lbl-a { right: 16px; opacity: 0; }
+    .gal-item:hover .gal-ba-lbl.lbl-b { opacity: 0; }
+    .gal-item:hover .gal-ba-lbl.lbl-a { opacity: 1; }
+    .gal-label { z-index: 10; }
   </style>
 </head>
 <body>
@@ -993,7 +1094,6 @@
   <div class="hero-r">
     <div class="hero-compose" id="heroCompose">
       <div class="hc-rect-main"></div>
-      <div class="hc-rect-accent"></div>
       <div class="hc-circle"></div>
       <div class="hc-line-v"></div>
       <div class="hc-badge">
@@ -1043,11 +1143,12 @@
     <div>
       <div class="lbl"><div class="lbl-bar"></div><span class="lbl-txt">Our Specialties</span></div>
       <h2 class="sh rv" data-splitting>Artistry across<br>every <em>dimension</em></h2>
+      <p class="sp rv d2" style="max-width:420px;margin-top:20px">Six service pillars designed around the full transformation journey — from body to face, surgical to non-surgical.</p>
     </div>
-    <p class="sp rv d2" style="max-width:300px">Six service pillars designed around the full transformation journey — from body to face, surgical to non-surgical.</p>
   </div>
   <div class="svc-grid">
     <div class="svc-card wide rv">
+      <div class="svc-photo-bg" style="background-image:url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=800&h=1000&fit=crop&q=85')"></div>
       <div class="svc-num">01</div>
       <h3 class="svc-t">Body Surgery</h3>
       <p class="svc-d">Miami's most sought-after body transformations, executed with board-certified precision and an eye for the city's most confident aesthetic.</p>
@@ -1062,6 +1163,7 @@
       <div class="svc-arr">→</div>
     </div>
     <div class="svc-card rv d1">
+      <div class="svc-photo-sm" style="background-image:url('https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?w=700&h=900&fit=crop&q=85')"></div>
       <div class="svc-num">02</div>
       <h3 class="svc-t">Breast Surgery</h3>
       <p class="svc-d">Augmentation, restoration, and refinement — personalized to your anatomy and aspirations.</p>
@@ -1073,6 +1175,7 @@
       <div class="svc-arr">→</div>
     </div>
     <div class="svc-card rv d2">
+      <div class="svc-photo-sm" style="background-image:url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=700&h=900&fit=crop&q=85')"></div>
       <div class="svc-num">03</div>
       <h3 class="svc-t">Face Surgery</h3>
       <p class="svc-d">Facial refinement from the subtle to the transformative — every feature in harmony.</p>
@@ -1086,6 +1189,7 @@
       <div class="svc-arr">→</div>
     </div>
     <div class="svc-card rv d1">
+      <div class="svc-photo-sm" style="background-image:url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=700&h=900&fit=crop&q=85')"></div>
       <div class="svc-num">04</div>
       <h3 class="svc-t">Cosmetic Treatments</h3>
       <p class="svc-d">Non-surgical enhancements for immediate, artful results without downtime.</p>
@@ -1097,6 +1201,7 @@
       <div class="svc-arr">→</div>
     </div>
     <div class="svc-card rv d2">
+      <div class="svc-photo-sm" style="background-image:url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=700&h=900&fit=crop&q=85')"></div>
       <div class="svc-num">05</div>
       <h3 class="svc-t">Weight Loss</h3>
       <p class="svc-d">Advanced bariatric procedures — the foundation of a complete body transformation arc.</p>
@@ -1176,7 +1281,7 @@
     <div class="h-scroll-track" id="hTrack">
 
       <div class="h-panel">
-        <div class="hp-photo-r" style="background-image:url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&h=1000&fit=crop&q=80')"></div>
+        <div class="hp-photo-r" style="background-image:url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=700&h=1000&fit=crop&q=80')"></div>
         <div class="hp-num">01</div>
         <div class="hp-label">Category 01</div>
         <h2 class="hp-title">Body<br><em>Surgery</em></h2>
@@ -1248,7 +1353,7 @@
       </div>
 
       <div class="h-panel">
-        <div class="hp-photo-r" style="background-image:url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=700&h=1000&fit=crop&q=80')"></div>
+        <div class="hp-photo-r" style="background-image:url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=700&h=1000&fit=crop&q=80')"></div>
         <div class="hp-num">05</div>
         <div class="hp-label">Category 05</div>
         <h2 class="hp-title">Weight<br><em>Loss</em></h2>
@@ -1289,9 +1394,56 @@
     <a href="#contact" class="btn-stroke rv d2">View All Cases →</a>
   </div>
   <div class="gallery-grid">
-    <div class="gal-item clip-rv"><div class="gal-item-inner g1"></div><div class="gal-overlay"></div><div class="gal-label">Body Surgery</div></div>
-    <div class="gal-item clip-rv d2"><div class="gal-item-inner g2"></div><div class="gal-overlay"></div><div class="gal-label">Breast Surgery</div></div>
-    <div class="gal-item clip-rv d4"><div class="gal-item-inner g3"></div><div class="gal-overlay"></div><div class="gal-label">Face Surgery</div></div>
+    <!-- Row 1 -->
+    <div class="gal-item">
+      <div class="gal-item-inner g1"></div>
+      <div class="gal-after-layer" style="background-image:url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=700&h=900&fit=crop&q=85')"></div>
+      <span class="gal-ba-lbl lbl-b">Before</span>
+      <span class="gal-ba-lbl lbl-a">After</span>
+      <div class="gal-overlay"></div>
+      <div class="gal-label">Body Surgery</div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-item-inner g2"></div>
+      <div class="gal-after-layer" style="background-image:url('https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?w=700&h=900&fit=crop&q=85')"></div>
+      <span class="gal-ba-lbl lbl-b">Before</span>
+      <span class="gal-ba-lbl lbl-a">After</span>
+      <div class="gal-overlay"></div>
+      <div class="gal-label">Breast Surgery</div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-item-inner g3"></div>
+      <div class="gal-after-layer" style="background-image:url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=700&h=900&fit=crop&q=85')"></div>
+      <span class="gal-ba-lbl lbl-b">Before</span>
+      <span class="gal-ba-lbl lbl-a">After</span>
+      <div class="gal-overlay"></div>
+      <div class="gal-label">Face Surgery</div>
+    </div>
+    <!-- Row 2 -->
+    <div class="gal-item">
+      <div class="gal-item-inner" style="background-image:url('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=700&h=900&fit=crop&q=85');background-size:cover;background-position:center top"></div>
+      <div class="gal-after-layer" style="background-image:url('https://images.unsplash.com/photo-1554151228-14d9def656e4?w=700&h=900&fit=crop&q=85')"></div>
+      <span class="gal-ba-lbl lbl-b">Before</span>
+      <span class="gal-ba-lbl lbl-a">After</span>
+      <div class="gal-overlay"></div>
+      <div class="gal-label">Rhinoplasty</div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-item-inner" style="background-image:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&h=900&fit=crop&q=85');background-size:cover;background-position:center top"></div>
+      <div class="gal-after-layer" style="background-image:url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=700&h=900&fit=crop&q=85')"></div>
+      <span class="gal-ba-lbl lbl-b">Before</span>
+      <span class="gal-ba-lbl lbl-a">After</span>
+      <div class="gal-overlay"></div>
+      <div class="gal-label">Liposuction</div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-item-inner" style="background-image:url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&h=900&fit=crop&q=85');background-size:cover;background-position:center top"></div>
+      <div class="gal-after-layer" style="background-image:url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=700&h=900&fit=crop&q=85')"></div>
+      <span class="gal-ba-lbl lbl-b">Before</span>
+      <span class="gal-ba-lbl lbl-a">After</span>
+      <div class="gal-overlay"></div>
+      <div class="gal-label">Mommy Makeover</div>
+    </div>
   </div>
 </section>
 
@@ -1342,6 +1494,255 @@
     </div>
   </div>
 </section>
+
+<!-- ═══ LOSS CALCULATOR ═══ -->
+<section class="sec calc-sec" id="calculator" style="background: var(--bg); padding: 100px 40px;">
+  <div style="max-width: 1180px; margin: 0 auto;">
+    <!-- Header -->
+    <div style="margin-bottom: 80px;">
+      <div style="margin-bottom: 24px;">
+        <span class="lbl rv" style="display: inline-block;">
+          <div class="lbl-bar"></div>
+          <span class="lbl-txt">Calculadora de Impacto</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-bottom: 100px;">
+      <!-- Left Panel -->
+      <div style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-family: var(--fd); font-size: clamp(36px, 5vw, 56px); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 32px;">
+          Descubre Cuánto Dinero Está <span style="font-style: italic; color: var(--gold)">Perdiendo</span> Tu Clínica.
+        </h2>
+        <p style="font-size: 16px; line-height: 1.7; color: var(--muted); max-width: 480px; font-family: var(--fb); font-weight: 300;">
+          Ingresa tus números y calcula el impacto mensual de llamadas fuera de horario, cancelaciones evitables y fallas de seguimiento.
+        </p>
+      </div>
+
+      <!-- Right Panel - Inputs -->
+      <div style="background: var(--s1); border: 1px solid var(--border); border-radius: 12px; padding: 48px 40px;">
+        <!-- Row 1 -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 16px;">
+          <div class="calc-input-field">
+            <label style="display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; color: var(--gold);">Valor Promedio por Paciente</label>
+            <div style="position: relative;">
+              <input type="number" class="calc-input" data-field="avgPatientValue" value="5000" min="0" style="width: 100%; background: var(--s1); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--ink);" />
+              <span style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 13px;">$</span>
+            </div>
+            <p style="font-size: 12px; margin-top: 8px; color: var(--muted); line-height: 1.5;">Ingreso promedio por paciente que avanza a procedimiento.</p>
+          </div>
+          <div class="calc-input-field">
+            <label style="display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; color: var(--gold);">Llamadas / Leads Perdidos</label>
+            <div style="position: relative;">
+              <input type="number" class="calc-input" data-field="missedCalls" value="20" min="0" style="width: 100%; background: var(--s1); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--ink);" />
+            </div>
+            <p style="font-size: 12px; margin-top: 8px; color: var(--muted); line-height: 1.5;">Pacientes que llaman cuando la clínica está cerrada.</p>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 16px;">
+          <div class="calc-input-field">
+            <label style="display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; color: var(--gold);">Tasa de Agenda</label>
+            <div style="position: relative;">
+              <input type="number" class="calc-input" data-field="bookingRate" value="40" min="0" max="100" style="width: 100%; background: var(--s1); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--ink);" />
+              <span style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 13px;">%</span>
+            </div>
+            <p style="font-size: 12px; margin-top: 8px; color: var(--muted); line-height: 1.5;">De cada 10 prospectos, cuántos agandan consulta.</p>
+          </div>
+          <div class="calc-input-field">
+            <label style="display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; color: var(--gold);">Tasa de Cierre</label>
+            <div style="position: relative;">
+              <input type="number" class="calc-input" data-field="closeRate" value="30" min="0" max="100" style="width: 100%; background: var(--s1); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--ink);" />
+              <span style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 13px;">%</span>
+            </div>
+            <p style="font-size: 12px; margin-top: 8px; color: var(--muted); line-height: 1.5;">De cada 10 consultas, cuántas cierran en procedimiento.</p>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 16px;">
+          <div class="calc-input-field">
+            <label style="display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; color: var(--gold);">Cancelaciones / No-Shows</label>
+            <div style="position: relative;">
+              <input type="number" class="calc-input" data-field="cancellations" value="10" min="0" style="width: 100%; background: var(--s1); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--ink);" />
+            </div>
+            <p style="font-size: 12px; margin-top: 8px; color: var(--muted); line-height: 1.5;">Citas canceladas o no presentadas por falta de confirmación.</p>
+          </div>
+          <div class="calc-input-field">
+            <label style="display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; color: var(--gold);">Valor por Consulta Perdida</label>
+            <div style="position: relative;">
+              <input type="number" class="calc-input" data-field="lostConsultValue" value="250" min="0" style="width: 100%; background: var(--s1); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--ink);" />
+              <span style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 13px;">$</span>
+            </div>
+            <p style="font-size: 12px; margin-top: 8px; color: var(--muted); line-height: 1.5;">Ingreso perdido por cada consulta desperdiciada.</p>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+          <div class="calc-input-field">
+            <label style="display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; color: var(--gold);">Casos Problemáticos / Año</label>
+            <div style="position: relative;">
+              <input type="number" class="calc-input" data-field="documentationCasesPerYear" value="2" min="0" style="width: 100%; background: var(--s1); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--ink);" />
+            </div>
+            <p style="font-size: 12px; margin-top: 8px; color: var(--muted); line-height: 1.5;">Casos con documentación deficiente que generan reclamos.</p>
+          </div>
+          <div class="calc-input-field">
+            <label style="display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; color: var(--gold);">Costo por Problema</label>
+            <div style="position: relative;">
+              <input type="number" class="calc-input" data-field="documentationCaseCost" value="5000" min="0" style="width: 100%; background: var(--s1); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--ink);" />
+              <span style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 13px;">$</span>
+            </div>
+            <p style="font-size: 12px; margin-top: 8px; color: var(--muted); line-height: 1.5;">Costo entre retrabajo, descuentos y reputación afectada.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <div style="background: var(--s1); border: 1px solid var(--border); border-radius: 12px; padding: 60px 48px; text-align: center; max-width: 800px; margin: 0 auto;">
+      <span style="display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gold);">Resultado Estimado</span>
+
+      <h3 style="font-family: var(--fd); font-size: 32px; font-weight: 400; color: var(--ink); margin-top: 28px; margin-bottom: 32px;">
+        Tu clínica podría estar dejando sobre la mesa:
+      </h3>
+
+      <!-- Big Number -->
+      <div style="background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 40px 24px; margin-bottom: 40px;">
+        <p style="font-family: 'DM Mono', monospace; font-size: clamp(40px, 8vw, 64px); font-weight: 500; color: var(--gold); line-height: 1; margin-bottom: 12px; letter-spacing: -0.02em;" id="totalMonthly">$0</p>
+        <p style="font-size: 14px; color: var(--muted); font-family: var(--fb); font-weight: 300;">por mes</p>
+      </div>
+
+      <!-- Breakdown -->
+      <div style="background: var(--bg); border-radius: 8px; padding: 32px 24px; margin-bottom: 32px; text-align: left;">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 16px;">
+          <span style="font-size: 14px; color: var(--muted);">Por llamadas perdidas</span>
+          <span style="font-size: 16px; font-weight: 500; color: var(--ink);" id="missedCallsLoss">$0</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 16px;">
+          <span style="font-size: 14px; color: var(--muted);">Por cancelaciones / no-shows</span>
+          <span style="font-size: 16px; font-weight: 500; color: var(--ink);" id="cancellationLoss">$0</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 14px; color: var(--muted);">Por riesgo operativo / documentación</span>
+          <span style="font-size: 16px; font-weight: 500; color: var(--ink);" id="documentationRisk">$0</span>
+        </div>
+      </div>
+
+      <!-- Annual -->
+      <p style="font-size: 16px; color: var(--ink); font-family: var(--fb); font-weight: 300;">
+        Eso equivale a <span style="color: var(--gold); font-weight: 500;" id="totalAnnual">$0</span> al año.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align: center; margin-top: 60px;">
+      <a href="#contact" style="display: inline-block; background: var(--ink); color: var(--bg); padding: 16px 36px; font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: all 0.3s; cursor: pointer;" onmouseover="this.style.background = 'var(--gold)'; this.style.color = 'var(--ink)';" onmouseout="this.style.background = 'var(--ink)'; this.style.color = 'var(--bg)';"><span>Agendar Consulta</span></a>
+    </div>
+  </div>
+</section>
+
+<style>
+@media (max-width: 1024px) {
+  .calc-sec {
+    --calc-grid-cols: 1fr !important;
+  }
+  .calc-sec [style*="grid-template-columns: 1fr 1fr"][style*="gap: 80px"] {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+  .calc-sec [style*="grid-template-columns: 1fr 1fr"][style*="gap: 32px"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .calc-sec {
+    padding: 60px 20px !important;
+  }
+  .calc-sec [style*="padding: 48px 40px"] {
+    padding: 32px 20px !important;
+  }
+  .calc-sec [style*="padding: 60px 48px"] {
+    padding: 40px 24px !important;
+  }
+}
+
+.calc-input {
+  transition: all 0.2s ease;
+}
+
+.calc-input:focus {
+  outline: none;
+  border-color: var(--gold) !important;
+  background: var(--bg) !important;
+}
+</style>
+
+<script>
+(function() {
+  const inputs = {
+    avgPatientValue: 5000,
+    missedCalls: 20,
+    bookingRate: 40,
+    closeRate: 30,
+    cancellations: 10,
+    lostConsultValue: 250,
+    documentationCasesPerYear: 2,
+    documentationCaseCost: 5000
+  };
+
+  function formatUSD(value) {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(value);
+  }
+
+  function calculate() {
+    const lossFromMissedCalls = inputs.missedCalls *
+      (inputs.bookingRate / 100) *
+      (inputs.closeRate / 100) *
+      inputs.avgPatientValue;
+
+    const lossFromCancellations = inputs.cancellations * inputs.lostConsultValue;
+
+    const monthlyDocumentationRisk =
+      (inputs.documentationCasesPerYear * inputs.documentationCaseCost) / 12;
+
+    const totalMonthlyLoss = lossFromMissedCalls + lossFromCancellations + monthlyDocumentationRisk;
+    const totalAnnualLoss = totalMonthlyLoss * 12;
+
+    document.getElementById('missedCallsLoss').textContent = formatUSD(Math.round(lossFromMissedCalls));
+    document.getElementById('cancellationLoss').textContent = formatUSD(Math.round(lossFromCancellations));
+    document.getElementById('documentationRisk').textContent = formatUSD(Math.round(monthlyDocumentationRisk));
+    document.getElementById('totalMonthly').textContent = formatUSD(Math.round(totalMonthlyLoss));
+    document.getElementById('totalAnnual').textContent = formatUSD(Math.round(totalAnnualLoss));
+  }
+
+  document.querySelectorAll('.calc-input').forEach(input => {
+    input.addEventListener('change', e => {
+      const field = e.target.dataset.field;
+      const value = e.target.value === '' ? 0 : Math.max(0, parseFloat(e.target.value) || 0);
+      inputs[field] = value;
+      e.target.value = value;
+      calculate();
+    });
+    input.addEventListener('input', e => {
+      const field = e.target.dataset.field;
+      const value = e.target.value === '' ? 0 : Math.max(0, parseFloat(e.target.value) || 0);
+      inputs[field] = value;
+      calculate();
+    });
+  });
+
+  calculate();
+})();
+</script>
 
 <!-- ═══ LOCATION ═══ -->
 <div class="loc-wrap">
